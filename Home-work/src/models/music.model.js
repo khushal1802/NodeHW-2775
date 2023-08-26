@@ -1,27 +1,27 @@
 const mongoose = require('mongoose');
 
-const travelSchema = new mongoose.Schema({
-  name: {
+const musicSchema = new mongoose.Schema({
+  title: {
     type: String,
     trim: true
   },
-  destination: {
+  artist: {
     type: String,
     trim: true
   },
-  startDate: {
-    type: Date,
+  album: {
+    type: String,
     trim: true
   },
-  endDate: {
-    type: Date,
+  genre: {
+    type: String,
     trim: true
   },
-  budget: {
+  releaseYear: {
     type: Number,
     trim: true
   },
-  travelers: {
+  duration: {
     type: Number,
     trim: true
   },
@@ -33,9 +33,8 @@ const travelSchema = new mongoose.Schema({
 {
   timestamps: true,
   versionKey: false,
-
 });
 
-const Travel = mongoose.model('Travel', travelSchema);
+const Music = mongoose.model('Music', musicSchema);
 
-module.exports = Travel;
+module.exports = Music;

@@ -1,6 +1,6 @@
 const joi =require("joi");
 
-/** creatr bus */
+/** creatr hotel */
 const createHotel={
     body: joi.object().keys({
         name: joi.string().required().trim(),

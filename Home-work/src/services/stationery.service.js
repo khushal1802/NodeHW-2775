@@ -5,7 +5,7 @@ const createStationery=async(reqBody)=>{
 }
 
 const getStationerylist=async(req,res)=>{
-    return Stationery.find();
+    return Stationery.find({$or:{_is_active:true}});
 }
 
 const deleteStationeryById=async(StationeryId)=>{

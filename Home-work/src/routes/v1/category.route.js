@@ -13,9 +13,16 @@ router.post(
 );
 
 /** Get categort list */
-// router.get(
-//   "/list",
-//   validate(categortValidation.getcategortList),
-//   categortController.getcategortList
-// );
+router.get(
+  "/list",
+  // validate(categortValidation.getcategortList),
+  categoryController.getCategoryList
+);
+
+/** Delete category */
+router.delete(
+  "/delete-category/:categoryId",
+  // validate(categoryValidation.getDetails),
+  categoryController.deleteCategory
+);
 module.exports = router;

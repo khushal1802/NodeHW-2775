@@ -1,27 +1,19 @@
 const mongoose = require('mongoose');
 
-const travelSchema = new mongoose.Schema({
+const grocerySchema = new mongoose.Schema({
   name: {
     type: String,
     trim: true
   },
-  destination: {
+  category: {
     type: String,
     trim: true
   },
-  startDate: {
-    type: Date,
-    trim: true
-  },
-  endDate: {
-    type: Date,
-    trim: true
-  },
-  budget: {
+  price: {
     type: Number,
     trim: true
   },
-  travelers: {
+  quantity: {
     type: Number,
     trim: true
   },
@@ -33,9 +25,8 @@ const travelSchema = new mongoose.Schema({
 {
   timestamps: true,
   versionKey: false,
-
 });
 
-const Travel = mongoose.model('Travel', travelSchema);
+const Grocery = mongoose.model('Grocery', grocerySchema);
 
-module.exports = Travel;
+module.exports = Grocery;

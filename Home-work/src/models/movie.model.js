@@ -1,28 +1,32 @@
 const mongoose = require('mongoose');
 
-const travelSchema = new mongoose.Schema({
-  name: {
+const movieSchema = new mongoose.Schema({
+  title: {
     type: String,
     trim: true
   },
-  destination: {
+  director: {
     type: String,
     trim: true
   },
-  startDate: {
-    type: Date,
+  location: {
+    type: String,
     trim: true
   },
-  endDate: {
-    type: Date,
-    trim: true
-  },
-  budget: {
+  price: {
     type: Number,
     trim: true
   },
-  travelers: {
+  rating: {
     type: Number,
+    trim: true
+  },
+  show: {
+    type: Number,
+    trim: true
+  },
+  seat: {
+    type: String,
     trim: true
   },
   is_active: {
@@ -33,9 +37,8 @@ const travelSchema = new mongoose.Schema({
 {
   timestamps: true,
   versionKey: false,
-
 });
 
-const Travel = mongoose.model('Travel', travelSchema);
+const Movie = mongoose.model('Movie', movieSchema);
 
-module.exports = Travel;
+module.exports = Movie;

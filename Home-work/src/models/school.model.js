@@ -34,14 +34,14 @@ const schoolSchema = new mongoose.Schema({
     type:Number,
     trim: true
 },
-  is_active: {
-    type: Boolean,
-    default: true,
-  },
+is_active: {
+  type: Boolean,
+  default: true,
+},
 },
 {
-  timestamps: true,
-  versionKey: false,
+timestamps: true,
+versionKey: false,
 });
 
 const School = mongoose.model('School', schoolSchema);

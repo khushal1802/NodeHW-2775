@@ -5,11 +5,11 @@ const createSchool=async(reqBody)=>{
 }
 
 const getSchoolList=async(req,res)=>{
-    return School.find();
+    return School.find({$or:{_is_active:true}});
 }
 
-const deleteSchool=async(schoolID)=>{
-    return School.findByIdAndDelete(schoolID)
+const deleteSchool=async(schoolId)=>{
+    return School.findByIdAndDelete(schoolId)
 }
 
 module.exports={

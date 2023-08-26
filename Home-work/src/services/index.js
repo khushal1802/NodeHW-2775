@@ -6,3 +6,8 @@ module.exports.stationeryService =require("./stationery.service");
 module.exports.schoolService=require("./school.service");
 module.exports.travelService=require("./travel.service");
 module.exports.pharmacyService=require("./pharmacy.service");
+module.exports.jewelryService=require("./jewelry.service");
+module.exports.movieService=require("./movie.service");
+module.exports.musicService=require("./music.service");
+module.exports.groceryService=require("./grocery.service");
+

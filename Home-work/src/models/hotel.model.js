@@ -23,7 +23,7 @@ const hotelSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    isActive: {
+    is_active: {
       type: Boolean,
       default: true,
     },

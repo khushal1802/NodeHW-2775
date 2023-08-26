@@ -5,7 +5,7 @@ const createPharmacy=async(reqBody)=>{
 }
 
 const getPharmacylist=async(req,res)=>{
-    return Pharmacy.find();
+    return Pharmacy.find({$or:{_is_active:true}});
 }
 
 const deletePharmacyById=async(pharmacyId)=>{

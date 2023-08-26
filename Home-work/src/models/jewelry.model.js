@@ -1,27 +1,23 @@
 const mongoose = require('mongoose');
 
-const travelSchema = new mongoose.Schema({
+const jewelrySchema = new mongoose.Schema({
   name: {
     type: String,
     trim: true
   },
-  destination: {
+  location :{
     type: String,
     trim: true
   },
-  startDate: {
-    type: Date,
+  material: {
+    type: String,
     trim: true
   },
-  endDate: {
-    type: Date,
+  gemstone: {
+    type: String,
     trim: true
   },
-  budget: {
-    type: Number,
-    trim: true
-  },
-  travelers: {
+  price: {
     type: Number,
     trim: true
   },
@@ -33,9 +29,8 @@ const travelSchema = new mongoose.Schema({
 {
   timestamps: true,
   versionKey: false,
-
 });
 
-const Travel = mongoose.model('Travel', travelSchema);
+const Jewelry = mongoose.model('Jewelry', jewelrySchema);
 
-module.exports = Travel;
+module.exports = Jewelry;

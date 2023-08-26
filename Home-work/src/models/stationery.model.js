@@ -16,7 +16,7 @@ const stationerySchema = new mongoose.Schema(
     stock: {
       type: Number,
     },
-    isActive: {
+    is_active: {
       type: Boolean,
       default: true,
     },
@@ -24,7 +24,7 @@ const stationerySchema = new mongoose.Schema(
   {
     timestamps: true,
     versionKey: false,
-  }
+  },
 );
 
 const Stationery = mongoose.model("Stationery", stationerySchema);

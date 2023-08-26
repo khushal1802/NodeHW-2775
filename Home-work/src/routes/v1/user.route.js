@@ -13,9 +13,16 @@ router.post(
 );
 
 /** Get user list */
-// router.get(
-//   "/list",
-//   validate(userValidation.getUserList),
-//   userController.getUserList
-// );
+router.get(
+  "/list",
+  // validate(userValidation.getUserList),
+  userController.getUserList
+);
+
+/** Delete user */
+router.delete(
+  "/delete-user/:userId",
+  // validate(userValidation.getDetails),
+  userController.deleteUser
+);
 module.exports = router;

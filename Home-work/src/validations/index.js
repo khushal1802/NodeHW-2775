@@ -6,4 +6,7 @@ module.exports.stationeryValidation=require("./stationery.validation");
 module.exports.schoolValidation=require("./school.validation");
 module.exports.travelValidation=require("./travel.validation");
 module.exports.pharmacyValidation=require("./pharmacy.validation");
-
+module.exports.jewelryValidation=require("./jewelry.validation");
+module.exports.movieValidation=require("./movie.validation");
+module.exports.musicValidation=require("./music.validation");
+module.exports.groceryValidation=require("./grocery.validation");
