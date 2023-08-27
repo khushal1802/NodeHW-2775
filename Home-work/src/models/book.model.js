@@ -1,30 +1,30 @@
 const mongoose = require("mongoose");
 
-const productSchema = new mongoose.Schema(
+const bookSchema = new mongoose.Schema(
   {
-    product_name: {
+    book_name: {
       type: String,
       trim: true,
     },
-    product_desc: {
+    book_author: {
       type: String,
       trim: true,
     },
-    price:{
-        type:Number,
+    book_title:{
+        type:String,
         trim:true,
     },
-    quality:{
+    book_desc:{
         type: String,
         trim:true,
     },
-    stock:{
+    book_price:{
         type: Number,
         trim:true,
     },
     is_active: {
       type: Boolean,
-      default: true,
+    default: true,
     },
   },
   {
@@ -33,6 +33,6 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-const Product = mongoose.model("Product",productSchema)
+const Book = mongoose.model("Book",bookSchema)
 
-module.exports = Product
+module.exports = Book
