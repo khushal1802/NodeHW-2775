@@ -1,7 +1,7 @@
-const{ Category,Product,User}=require("../models")
+const{ Category}=require("../models")
 
 const getList = async (req, res) => {
-    return Category.find(),Product.find(),User.find()
+    return Category.find()
   };
 
 module.exports={
