@@ -1,9 +1,9 @@
-const{ Category}=require("../models")
+const{ Category,Product,User}=require("../models")
 
-const getCategoryList = async (req, res) => {
-    return Category.find()
+const getList = async (req, res) => {
+    return Category.find(),Product.find(),User.find()
   };
 
 module.exports={
-    getCategoryList
+  getList
 }
