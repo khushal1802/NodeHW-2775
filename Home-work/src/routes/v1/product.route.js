@@ -14,6 +14,16 @@ router.get(
     productController.getProductlist
 )
 
+router.get(
+    "/get-details/:productId",
+    productController.getProductDetails
+  );
+  
+  router.put(
+    "/update-details/:productId",
+    productController.updateDetails
+  );
+
 router.delete(
     "/delete-product/:productId",
     productController.deleteProductById,

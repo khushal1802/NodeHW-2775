@@ -35,13 +35,49 @@ const getCategoryList = async (req, res) => {
   }
 };
 
+
+const getCategoryDetails = async (req, res) => {
+  try {
+    const getDetails = await categoryService.getCategoryById(req.params.categoryId);
+    if (!getDetails) {
+      throw new Error("category not found!");
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "category details get successfully!",
+      data: getDetails,
+    });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+const updateDetails = async (req, res) => {
+  try {
+    const categoryId = req.params.categoryId;
+    const categoryExists = await categoryService.getCategoryById(categoryId);
+    if (!categoryExists) {
+      throw new Error("category not found!");
+    }
+
+    await categoryService.updateDetails(categoryId, req.body);
+
+    res
+      .status(200)
+      .json({ success: true, message: "category details update successfully!" });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
 /** Delete Category */
 const deleteCategory = async (req, res) => {
   try {
     const categoryId = req.params.categoryId;
     // const categoryExists = await categoryService.getCategoryById(categoryId);
     if (!categoryId) {
-      throw new Error("User not found!");
+      throw new Error("category not found!");
     }
 
     await categoryService.deleteCategory(categoryId);
@@ -57,5 +93,7 @@ const deleteCategory = async (req, res) => {
 module.exports = {
   createCategory,
   getCategoryList,
+  getCategoryDetails,
+  updateDetails,
   deleteCategory,
 };

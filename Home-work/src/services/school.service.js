@@ -8,6 +8,14 @@ const getSchoolList=async(req,res)=>{
     return School.find({$or:{_is_active:true}});
 }
 
+const getSchoolById = async (schoolId) => {
+    return School.findById(schoolId);
+  };
+
+const updateDetails = async (schoolId, updateBody) => {
+    return School.findByIdAndUpdate(schoolId, { $set: updateBody });
+  };
+
 const deleteSchool=async(schoolId)=>{
     return School.findByIdAndDelete(schoolId)
 }
@@ -15,5 +23,7 @@ const deleteSchool=async(schoolId)=>{
 module.exports={
     createSchool,
     getSchoolList,
+    getSchoolById,
+    updateDetails,
     deleteSchool
 };

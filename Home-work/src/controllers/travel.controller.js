@@ -39,6 +39,42 @@ const getTravellist = async (req, res) => {
   }
 };
 
+const getTravelDetails = async (req, res) => {
+  try {
+    const getDetails = await travelService.getTravelById(req.params.travelId);
+    if (!getDetails) {
+      throw new Error("travel not found!");
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "travel details get successfully!",
+      data: getDetails,
+    });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+/** travel details update by id */
+const updateDetails = async (req, res) => {
+  try {
+    const travelId = req.params.travelId;
+    const travelExists = await travelService.getTravelById(travelId);
+    if (!travelExists) {
+      throw new Error("travel not found!");
+    }
+
+    await travelService.updateDetails(travelId, req.body);
+
+    res
+      .status(200)
+      .json({ success: true, message: "travel details update successfully!" });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
 const deleteTravelById = async (req, res) => {
   try {
     const travelId = req.params.travelId;
@@ -61,5 +97,7 @@ const deleteTravelById = async (req, res) => {
 module.exports = {
   createTravel,
   getTravellist,
+  getTravelDetails,
+  updateDetails,
   deleteTravelById
 };

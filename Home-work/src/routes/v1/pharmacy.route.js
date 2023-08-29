@@ -14,6 +14,16 @@ router.get(
     pharmacyController.getPharmacylist
 )
 
+router.get(
+    "/get-details/:pharmacyId",
+    pharmacyController.getPharmacyDetails
+  );
+  
+  router.put(
+    "/update-details/:pharmacyId",
+    pharmacyController.updateDetails
+  );
+
 router.delete(
     "/delete-pharmacy/:pharmacyId",
     pharmacyController.deletePharmacyById,

@@ -14,6 +14,17 @@ router.get(
     travelController.getTravellist
 )
 
+router.get(
+  "/get-details/:travelId",
+  travelController.getTravelDetails
+);
+
+router.put(
+  "/update-details/:travelId",
+  travelController.updateDetails
+);
+
+
 router.delete(
     "/delete-travel/:travelId",
     travelController.deleteTravelById,

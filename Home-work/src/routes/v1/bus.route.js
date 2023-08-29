@@ -16,6 +16,16 @@ router.get(
     busController.getBuslist
 );
 
+router.get(
+    "/get-details/:busId",
+    busController.getBusDetails
+  );
+  
+  router.put(
+    "/update-details/:busId",
+    busController.updateDetails
+  );
+  
 /** delete bus */
 router.delete(
     "/delete-bus/:busId",

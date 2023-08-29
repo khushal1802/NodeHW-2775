@@ -8,6 +8,14 @@ const getMovieList=async(req,res)=>{
     return Movie.find({$or:{_is_active:true}});
 }
 
+const getMovieById = async (MovieId) => {
+    return Movie.findById(MovieId);
+  };
+  
+  const updateDetails = async (MovieId, updateBody) => {
+    return Movie.findByIdAndUpdate(MovieId, { $set: updateBody });
+  };
+
 const deleteMovieById=async(MovieId)=>{
     return Movie.findByIdAndDelete(MovieId)
 }
@@ -15,5 +23,7 @@ const deleteMovieById=async(MovieId)=>{
 module.exports={
     createMovie,
     getMovieList,
+    getMovieById,
+    updateDetails,
     deleteMovieById
 };

@@ -39,6 +39,42 @@ const getGroceryList = async (req, res) => {
   }
 };
 
+
+const getGroceryDetails = async (req, res) => {
+  try {
+    const getDetails = await groceryService.getGroceryById(req.params.groceryId);
+    if (!getDetails) {
+      throw new Error("grocery not found!");
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "grocery details get successfully!",
+      data: getDetails,
+    });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+const updateDetails = async (req, res) => {
+  try {
+    const groceryId = req.params.groceryId;
+    const groceryExists = await groceryService.getGroceryById(groceryId);
+    if (!groceryExists) {
+      throw new Error("grocery not found!");
+    }
+
+    await groceryService.updateDetails(groceryId, req.body);
+
+    res
+      .status(200)
+      .json({ success: true, message: "grocery details update successfully!" });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
 const deleteGroceryById = async (req, res) => {
   try {
     const groceryId = req.params.groceryId;
@@ -61,5 +97,7 @@ const deleteGroceryById = async (req, res) => {
 module.exports = {
     createGrocery,
     getGroceryList,
+    getGroceryDetails,
+    updateDetails,
     deleteGroceryById
 };

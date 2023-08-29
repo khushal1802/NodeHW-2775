@@ -8,6 +8,14 @@ const getGroceryList=async(req,res)=>{
     return grocery.find({$or:{_is_active:true}});
 }
 
+const getGroceryById=async(groceryId)=>{
+    return grocery.findById(groceryId)
+}
+
+const updateDetails=async(groceryId,updateBody)=>{
+    return grocery.findByIdAndUpdate(groceryId,{$set:updateBody})
+}
+
 const deleteGroceryById=async(groceryId)=>{
     return grocery.findByIdAndDelete(groceryId)
 }
@@ -15,5 +23,7 @@ const deleteGroceryById=async(groceryId)=>{
 module.exports={
     createGrocery,
     getGroceryList,
+    getGroceryById,
+    updateDetails,
     deleteGroceryById
 };

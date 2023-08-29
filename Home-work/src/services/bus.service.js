@@ -8,6 +8,14 @@ const getBuslist=async(req, res)=>{
     return Bus.find({$or:{_is_active:true}});
 }
 
+const getBusById=async(busId)=>{
+    return Bus.findById(busId);
+}
+
+const updateDetails=async(busId,updateBody)=>{
+    return Bus.findByIdAndUpdate(busId,{$set:updateBody})
+}
+
 const deleteBus=async(busId)=>{
     return Bus.findByIdAndDelete(busId);
 }
@@ -15,5 +23,7 @@ const deleteBus=async(busId)=>{
 module.exports={
     createBus,
     getBuslist,
+    getBusById,
+    updateDetails,
     deleteBus
 }

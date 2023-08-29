@@ -14,6 +14,16 @@ router.get(
     jewelryController.getJewelryList
 )
 
+router.get(
+    "/get-details/:jewelryId",
+    jewelryController.getJewelryDetails
+  );
+  
+  router.put(
+    "/update-details/:jewelryId",
+    jewelryController.updateDetails
+  );
+
 router.delete(
     "/delete-jewelry/:jewelryId",
     jewelryController.deleteJewelryById,

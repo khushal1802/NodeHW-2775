@@ -19,6 +19,16 @@ router.get(
   categoryController.getCategoryList
 );
 
+router.get(
+  "/get-details/:categoryId",
+  categoryController.getCategoryDetails
+);
+
+router.put(
+  "/update-details/:categoryId",
+  categoryController.updateDetails
+);
+
 /** Delete category */
 router.delete(
   "/delete-category/:categoryId",

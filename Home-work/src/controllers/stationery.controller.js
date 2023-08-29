@@ -39,6 +39,41 @@ const getStationerylist = async (req, res) => {
   }
 };
 
+const getStationeryDetails = async (req, res) => {
+  try {
+    const getDetails = await stationeryService.getStationeryById(req.params.stationeryId);
+    if (!getDetails) {
+      throw new Error("stationery not found!");
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "stationery details get successfully!",
+      data: getDetails,
+    });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+const updateDetails = async (req, res) => {
+  try {
+    const stationeryId = req.params.stationeryId;
+    const stationeryExists = await stationeryService.getStationeryById(stationeryId);
+    if (!stationeryExists) {
+      throw new Error("stationery not found!");
+    }
+
+    await stationeryService.updateDetails(stationeryId, req.body);
+
+    res
+      .status(200)
+      .json({ success: true, message: "stationery details update successfully!" });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
 const deleteStationeryById = async (req, res) => {
   try {
     const stationeryId = req.params.stationeryId;
@@ -61,5 +96,7 @@ const deleteStationeryById = async (req, res) => {
 module.exports = {
   createStationery,
   getStationerylist,
+  getStationeryDetails,
+  updateDetails,
   deleteStationeryById,
 };

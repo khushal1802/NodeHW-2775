@@ -14,6 +14,16 @@ router.get(
     stationeryController.getStationerylist
 )
 
+router.get(
+    "/get-details/:stationeryId",
+    stationeryController.getStationeryDetails
+  );
+
+  router.put(
+    "/update-details/:stationeryId",
+    stationeryController.updateDetails
+  );
+
 router.delete(
     "/delete-stationery/:stationeryId",
     stationeryController.deleteStationeryById,

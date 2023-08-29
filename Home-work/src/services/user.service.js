@@ -10,6 +10,14 @@ const getUserList = async (req, res) => {
   return User.find()
 };
 
+const getUserById = async (userId) => {
+  return User.findById(userId);
+};
+
+const updateDetails = async (userId, updateBody) => {
+  return User.findByIdAndUpdate(userId, { $set: updateBody });
+};
+
 // delete user
 const deleteUser = async (userId) => {
   return User.findByIdAndDelete(userId);
@@ -18,5 +26,7 @@ const deleteUser = async (userId) => {
 module.exports = {
   createUser,
   getUserList,
+  getUserById,
+  updateDetails,
   deleteUser
 };

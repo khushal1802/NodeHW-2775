@@ -10,6 +10,14 @@ const getBookList = async (req, res) => {
   return Book.find()
 };
 
+const getBookById = async (bookId) => {
+  return Book.findById(bookId);
+};
+
+const updateDetails = async (bookId, updateBody) => {
+  return Book.findByIdAndUpdate(bookId, { $set: updateBody });
+};
+
 // delete category
 const deleteBook = async (bookId) => {
   return Book.findByIdAndDelete(bookId);
@@ -19,5 +27,7 @@ const deleteBook = async (bookId) => {
 module.exports = {
     createBook,
   getBookList,
+  getBookById,
+  updateDetails,
   deleteBook
 };

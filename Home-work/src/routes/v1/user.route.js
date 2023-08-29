@@ -19,6 +19,21 @@ router.get(
   userController.getUserList
 );
 
+/** Get user details by id */
+router.get(
+  "/get-details/:userId",
+  // validate(userValidation.getDetails),
+  userController.getUserDetails
+);
+
+/** user details update by id */
+router.put(
+  "/update-details/:userId",
+  // validate(userValidation.updateDetails),
+  userController.updateDetails
+);
+
+
 /** Delete user */
 router.delete(
   "/delete-user/:userId",

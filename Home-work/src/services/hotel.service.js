@@ -8,6 +8,14 @@ const getHotelslist = async (req, res) => {
   return Hotel.find({$or:{_is_active:true}});
 };
 
+const getHotelById = async (hotelId) => {
+  return Hotel.findById(hotelId);
+};
+
+const updateDetails = async (hotelId, updateBody) => {
+  return Hotel.findByIdAndUpdate(hotelId, { $set: updateBody });
+};
+
 const deleteHotel = async (hotelId) => {
   return Hotel.findByIdAndDelete(hotelId);
 };
@@ -15,5 +23,7 @@ const deleteHotel = async (hotelId) => {
 module.exports = {
   createHotel,
   getHotelslist,
+  getHotelById,
+  updateDetails,
   deleteHotel,
 };

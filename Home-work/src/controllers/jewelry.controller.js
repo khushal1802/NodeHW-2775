@@ -39,6 +39,42 @@ const getJewelryList = async (req, res) => {
   }
 };
 
+
+const getJewelryDetails = async (req, res) => {
+  try {
+    const getDetails = await jewelryService.getJewelryById(req.params.jewelryId);
+    if (!getDetails) {
+      throw new Error("jewelry not found!");
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "jewelry details get successfully!",
+      data: getDetails,
+    });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+const updateDetails = async (req, res) => {
+  try {
+    const jewelryId = req.params.jewelryId;
+    const jewelryExists = await jewelryService.getJewelryById(jewelryId);
+    if (!jewelryExists) {
+      throw new Error("jewelry not found!");
+    }
+
+    await jewelryService.updateDetails(jewelryId, req.body);
+
+    res
+      .status(200)
+      .json({ success: true, message: "jewelry details update successfully!" });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
 const deleteJewelryById = async (req, res) => {
   try {
     const jewelryId = req.params.jewelryId;
@@ -61,5 +97,7 @@ const deleteJewelryById = async (req, res) => {
 module.exports = {
     createJewelry,
   getJewelryList,
+  getJewelryDetails,
+  updateDetails,
   deleteJewelryById
 };

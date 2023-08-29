@@ -39,6 +39,41 @@ const getProductlist = async (req, res) => {
   }
 };
 
+const getProductDetails = async (req, res) => {
+  try {
+    const getDetails = await productService.getProductById(req.params.productId);
+    if (!getDetails) {
+      throw new Error("product not found!");
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "product details get successfully!",
+      data: getDetails,
+    });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+const updateDetails = async (req, res) => {
+  try {
+    const productId = req.params.productId;
+    const productExists = await productService.getProductById(productId);
+    if (!productExists) {
+      throw new Error("product not found!");
+    }
+
+    await productService.updateDetails(productId, req.body);
+
+    res
+      .status(200)
+      .json({ success: true, message: "product details update successfully!" });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
 const deleteProductById = async (req, res) => {
   try {
     const productId = req.params.productId;
@@ -61,5 +96,7 @@ const deleteProductById = async (req, res) => {
 module.exports = {
   createProduct,
   getProductlist,
+  getProductDetails,
+  updateDetails,
   deleteProductById,
 };
