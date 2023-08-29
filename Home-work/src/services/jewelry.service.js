@@ -5,7 +5,7 @@ const createJewelry=async(reqBody)=>{
 }
 
 const getJewelryList=async(req,res)=>{
-    return Jewelry.find({$or:{_is_active:true}});
+    return Jewelry.find({$or:[{is_active:true}]});
 }
 
 const getJewelryById = async (jewelryId) => {

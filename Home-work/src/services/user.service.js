@@ -7,7 +7,7 @@ const createUser = async (reqBody) => {
 
 //  Get user list
 const getUserList = async (req, res) => {
-  return User.find()
+  return User.find({$or:[{is_active:true}]})
 };
 
 const getUserById = async (userId) => {

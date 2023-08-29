@@ -5,7 +5,7 @@ const createSchool=async(reqBody)=>{
 }
 
 const getSchoolList=async(req,res)=>{
-    return School.find({$or:{_is_active:true}});
+    return School.find({$or:[{is_active:true}]});
 }
 
 const getSchoolById = async (schoolId) => {

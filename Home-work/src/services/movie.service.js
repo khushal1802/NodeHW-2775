@@ -5,7 +5,7 @@ const createMovie=async(reqBody)=>{
 }
 
 const getMovieList=async(req,res)=>{
-    return Movie.find({$or:{_is_active:true}});
+    return Movie.find({$or:[{is_active:true}]});
 }
 
 const getMovieById = async (MovieId) => {

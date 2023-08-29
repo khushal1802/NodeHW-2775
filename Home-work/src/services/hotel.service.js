@@ -5,7 +5,7 @@ const createHotel = async (reqBody) => {
 };
 
 const getHotelslist = async (req, res) => {
-  return Hotel.find({$or:{_is_active:true}});
+  return Hotel.find({$or:[{is_active:true}]});
 };
 
 const getHotelById = async (hotelId) => {
