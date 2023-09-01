@@ -22,6 +22,18 @@ const productSchema = new mongoose.Schema(
         type: Number,
         trim:true,
     },
+    category:{
+      type:mongoose.Types.ObjectId,
+      ref:"Category"
+    },
+    jewelry:{
+      type:mongoose.Types.ObjectId,
+      ref:"Jewelry"
+    },
+    grocery:{
+      type:mongoose.Types.ObjectId,
+      ref:"Grocery"
+    },
     is_active: {
       type: Boolean,
       default: true,

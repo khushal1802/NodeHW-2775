@@ -33,6 +33,10 @@ const movieSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  music:{
+    type:mongoose.Types.ObjectId,
+    ref: "Music",
+  },
 },
 {
   timestamps: true,

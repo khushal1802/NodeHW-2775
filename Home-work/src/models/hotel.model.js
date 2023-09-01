@@ -23,6 +23,10 @@ const hotelSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    travel:{
+      type:mongoose.Types.ObjectId,
+      ref:"Treavel"
+    },
     is_active: {
       type: Boolean,
       default: true,

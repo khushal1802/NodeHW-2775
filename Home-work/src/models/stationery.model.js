@@ -16,6 +16,10 @@ const stationerySchema = new mongoose.Schema(
     stock: {
       type: Number,
     },
+    book:{
+      type:mongoose.Types.ObjectId,
+      ref:"Book"
+    },
     is_active: {
       type: Boolean,
       default: true,
