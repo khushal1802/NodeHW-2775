@@ -1,22 +1,16 @@
-const { User } = require("../models");
+const Joi = require("joi");
 
-// create user
-const createUser = async (reqBody) => {
-  return User.create(reqBody);
+/** create user */
+const createUser = {
+  body: Joi.object().keys({
+    first_name: Joi.string().required().trim(),
+    last_name: Joi.string().required().trim(),
+    email: Joi.string().required().trim(),
+    password: Joi.string().required().trim(),
+    address: Joi.string().required().trim(),
+  }),
 };
 
-//  Get user list
-const getUserList = async (req, res) => {
-  return User.find({$or:{_is_active:true}})
-};
-
-// delete user
-const deleteUser = async (userId) => {
-  return User.findByIdAndDelete(userId);
-};
-
-module.exports = {
-  createUser,
-  getUserList,
-  deleteUser
-};
+module.exports={
+  createUser
+}
