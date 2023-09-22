@@ -30,7 +30,7 @@ router.get(
 
 /** Update product details */
 router.put(
-  "/update/:productId",
+  "/update-details/:productId",
   upload.single("product_image"),
   productController.updateProduct
 );

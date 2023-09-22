@@ -82,10 +82,7 @@ const updateProduct = async (req, res) => {
       reqBody.product_image = req.file.filename;
     }
 
-    const updatedProduct = await productService.updateProduct(
-      productId,
-      reqBody
-    );
+    const updatedProduct = await productService.updateProduct(productId, reqBody);
     if (updatedProduct) {
       if (req.file) {
         const filePath = `./public/product_images/${productExists.product_image}`;
@@ -100,7 +97,7 @@ const updateProduct = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Product details update successfully!",
-      data: updatedProduct,
+      data: {updatedProduct},
     });
   } catch (error) {
     res.status(400).json({

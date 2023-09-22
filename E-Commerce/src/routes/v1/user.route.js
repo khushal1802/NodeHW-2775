@@ -36,4 +36,10 @@ router.delete(
   userController.deleteUser
 );
 
+/** Send mail */
+router.post(
+  "/send-mail",
+  validate(userValidation.sendMail),
+  userController.sendMail
+);
 module.exports = router;

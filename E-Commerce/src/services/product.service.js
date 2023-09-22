@@ -12,12 +12,12 @@ const getProductList = async (req, res) => {
 
 // Get product details
 const getProductById = async (productId) => {
-  return Product.findOne(productId);
+  return Product.findById(productId);
 };
 
 // Update product details
 const updateProduct = async (productId, reqBody) => {
-  return Product.findOneAndUpdate(productId, { $set: reqBody });
+  return Product.findByIdAndUpdate(productId, { $set: reqBody });
 };
 
 // Manage product status
